@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Private Database</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Private Database</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="txtbox">
+        <a
+          class="btn btn_delete"
+          href="/delete?id=<%=data.data.id%>"
+          onclick="return confirm('Are you sure you want to delete this post?');"
+        >
+          Delete
+        </a>
+
+        <form action="/edit" method="post">
+          <input type="text" name="question" , placeholder="  Title" value="<%=data.data.question%>" required />
+          <br />
+          <br />
+          <textarea name="answer" class="textarea" placeholder="  Post" required><%=data.data.answer%></textarea>
+          <br />
+          <input type="hidden" name="fileName" , value="<%=data.fileName%>" required />
+          <input type="hidden" name="id" , value="<%=data.data.id%>" required />
+          <br />
+          <input type="submit" class="btn" value="Save" />
+        </form>
+      </div>
+      <div class="footer">S & D Private Database | github: @Sajjal</div>
+    </div>
+  </body>
+</html>

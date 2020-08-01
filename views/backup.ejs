@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Private Database</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Private Database</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="projectGrid">
+        <div class="txtbox">
+          <strong>Backup:</strong>
+          <hr />
+          <a href="/dataBackup" class="btn" style="width: 90%;">Generate Backup</a>
+        </div>
+        <div class="txtbox">
+          <strong>Restore:</strong>
+          <hr />
+          <form action="/backup" method="post" enctype="multipart/form-data">
+            <div class="inputfile-box">
+              <input type="file" id="file" name="dataFile" accept=".zip" required class="inputfile" onchange="uploadFile(this)" />
+              <label for="file">
+                <span id="file-name" class="file-box"></span>
+                <span class="file-button">
+                  Select File
+                </span>
+              </label>
+            </div>
+            <input type="submit" class="btn" value=" Restore Backup" />
+          </form>
+        </div>
+      </div>
+      <div class="footer">S & D Private Database | github: @Sajjal</div>
+    </div>
+    <script>
+      function uploadFile(target) {
+        document.getElementById("file-name").innerHTML = target.files[0].name;
+      }
+    </script>
+  </body>
+</html>

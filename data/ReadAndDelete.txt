@@ -1,0 +1,15 @@
+You can use Encrypted login instead of 'admin' 'admin'
+To do So, Run the 'encrypt' function in: 'modules/encrypt.js' with some string as a parameter.
+Copy the encrypted text.
+
+Create a 'user.json' file in this directory with the following structure:
+
+[
+  {
+    "q": "Encrypted-Username",
+    "a": "Encrypted Password"
+  }
+]
+
+Go to 'routes/mainRouter.js'
+Uncomment line 33 and 37, and comment line 38.

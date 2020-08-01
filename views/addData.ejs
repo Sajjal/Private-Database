@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Private Database</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Private Database</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="txtbox">
+        <form action="/add" method="post">
+          <input type="text" name="question" class="text" placeholder="Title" required />
+          <br />
+          <br />
+          <textarea name="answer" class="textarea" placeholder="Post" required></textarea>
+          <br />
+          <br />
+          <input type="submit" class="btn" value="Post" />
+        </form>
+      </div>
+      <div class="footer">S & D Private Database | github: @Sajjal</div>
+    </div>
+    <script>
+      const textarea = document.querySelector("textarea");
+      textarea.oninput = function () {
+        if (textarea.scrollTop != 0) textarea.style.height = textarea.scrollHeight + "px";
+      };
+    </script>
+  </body>
+</html>

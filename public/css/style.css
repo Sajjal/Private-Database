@@ -1,0 +1,241 @@
+body {
+  margin: 0px;
+  padding: 10px 0;
+  background-color: #dfe1e8;
+}
+
+.container {
+  min-width: 699px;
+  max-width: 600px;
+  background: #dfe1e8;
+  padding: 30px 40px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 20px #000000b3;
+  font-family: "Montserrat", sans-serif;
+  margin: auto;
+  height: auto;
+}
+
+.container h1 {
+  margin-top: 0;
+  text-decoration: underline;
+  background-color: #2d8ec2;
+  border-radius: 2px;
+  padding: 30px 15px;
+  color: #f0f0f0;
+}
+
+.notification {
+  border: 1px solid gray;
+  padding: 12px 18px;
+  border-radius: 2px;
+  text-align: center;
+  color: #2d8ec2;
+  text-transform: uppercase;
+  font-size: 1.6em;
+  font-weight: bold;
+  height: 28.2px;
+}
+
+.navigation {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 24.5% 47.5% 10% 8%;
+  border: 1px solid gray;
+  padding: 8px 4px;
+  border-radius: 2px;
+  text-align: left;
+  margin-bottom: 10px;
+  height: 55px;
+}
+
+.display {
+  border: 1px solid gray;
+  margin: 2px 0;
+  padding: 10px 10px;
+  border-radius: 2px;
+  text-align: left;
+}
+
+.display h3 {
+  margin-top: 0;
+  padding: 2px 2px;
+}
+
+.txtbox {
+  border: 1px solid gray;
+  margin: 8px 0;
+  padding: 12px 18px;
+  border-radius: 2px;
+  text-align: left;
+}
+
+.txtbox input {
+  width: 100%;
+  background-color: #dfe1e8;
+  border: 1px solid #64686b;
+  outline: none;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 10px 0;
+}
+
+.txtbox input[type="text"] {
+  padding-left: 10px;
+  width: 98.2%;
+}
+
+.txtbox input[type="password"] {
+  padding-left: 10px;
+  width: 98.2%;
+}
+
+.textarea {
+  background-color: #dfe1e8;
+  border: 1px solid #64686b;
+  align-content: left;
+  margin-top: 6px;
+  width: 97.8%;
+  height: 100px;
+  font-size: 18px;
+  padding-left: 10px;
+}
+
+.projectGrid {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 48% 48%;
+  border: 1px solid gray;
+  margin: 2px 0;
+  padding: 20px 20px;
+  border-radius: 2px;
+  text-align: left;
+}
+
+.posts {
+  border: 1px solid #64686b;
+  padding: 10px 10px;
+  border-radius: 2px;
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.answer {
+  text-align: justify;
+}
+
+.inputfile-box {
+  position: relative;
+}
+
+.inputfile {
+  display: none;
+}
+
+.file-box {
+  display: inline-block;
+  width: 100%;
+  border: 1px solid;
+  padding: 5px 0px 5px 5px;
+  box-sizing: border-box;
+  height: calc(2rem - 2px);
+}
+
+.file-button {
+  background: #dfe1e8;
+  padding: 5px;
+  position: absolute;
+  border: 1px solid;
+  top: 0px;
+  right: 0px;
+  box-shadow: 1px 1px #888888;
+  -webkit-appearance: none;
+}
+
+.icon {
+  padding: 1px;
+  border: 1px solid #7d7c7a;
+  border-radius: 2px;
+  margin-right: 8px;
+  margin-left: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+.btn {
+  margin-top: 15px;
+  display: inline-block;
+  background: #dfe1e8;
+  padding: 0.5rem;
+  border: 1px solid #7d7c7a;
+  border-radius: 2px;
+  color: #1a1814;
+  width: auto;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1em;
+  min-width: 80px;
+  box-shadow: 2px 2px #888888;
+  -webkit-appearance: none;
+}
+
+.btn_delete {
+  margin-top: 0;
+  border: 2px solid #fc5603;
+  margin-left: 82%;
+  box-shadow: 3px 3px #888888;
+}
+
+.btn_edit {
+  margin-left: 82%;
+}
+
+.pagination {
+  border: 1px solid gray;
+  margin: 8px 0;
+  border-radius: 2px;
+  text-align: center;
+}
+.btn_pagination {
+  margin-left: 2px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  color: #1a1814;
+  padding: 0.185rem;
+  border: 1px solid #64686b;
+  border-radius: 5px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.footer {
+  border: 1px solid gray;
+  margin-top: 20px;
+  padding: 12px 18px;
+  border-radius: 2px;
+  background-color: #2d8ec2;
+  color: #f0f0f0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dfe1e8;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

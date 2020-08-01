@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>S & D Private Database</title>
+    <link rel="shortcut icon" href="/images/icon.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>S & D Private Database</h1>
+      <div><%- include('_navbar')%></div>
+      <div class="display" id="display">
+        <% posts.forEach(post => {%>
+        <div class="posts">
+          <h3><%= post.question %></h3>
+          <div class="answer">
+            <%- post.answer %>
+          </div>
+          <div>
+            <a class="btn btn_edit" href="/edit?id=<%=post.id%>">Edit</a>
+          </div>
+        </div>
+        <% })%>
+      </div>
+      <div><%- include('_pagination')%></div>
+      <div class="footer">S & D Private Database | github: @Sajjal</div>
+    </div>
+  </body>
+</html>
