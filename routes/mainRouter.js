@@ -1,9 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const jwt = require("jsonwebtoken");
 const path = require("path");
 const publicDirectoryPath = path.join(__dirname, "../public");
 const multer = require("multer");
 
+const { verifyUser, saveExpiredToken, removeExpiredToken } = require("../modules/verifyToken");
 const { readFile, saveData, getData, updateData, removeData, getFileName, getSingleRecord } = require("../modules/readWriteFile");
 const { createBackup, restoreBackup } = require("../modules/backup");
 
@@ -18,14 +20,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Verify Logged in User
-let userStatus = "Invalid";
-function verifyUser(req, res, next) {
-  if (userStatus !== "Valid") return res.render("index", { message: "Please Login!" });
-  next();
-}
-
-router.get("/", (req, res) => {
+router.get("/", verifyUser, (req, res) => {
   return res.redirect("/dashboard");
 });
 
@@ -37,8 +32,17 @@ router.post("/", async (req, res) => {
   //if (username !== data[0].question || password !== data[0].answer) return res.render("index", { message: "Invalid Login!" });
   if (username !== "admin" || password !== "admin") return res.render("index", { message: "Invalid Login!" });
 
-  userStatus = "Valid";
-  return res.redirect("/dashboard");
+  //If everything is valid Create and assign a token. Token Expires in 2 hours
+  const accessToken = jwt.sign({ id: "mrsajjal" }, process.env.TOKEN_SECRET, {
+    expiresIn: "7200s",
+  });
+
+  // Remove old expired tokens
+  await removeExpiredToken();
+
+  //Save accessToken to Client's Browser Cookie and Redirect to Dashboard
+  return res.cookie("accessToken", accessToken).redirect("/dashboard");
+  // return res.cookie("accessToken", accessToken, { httpOnly: true, secure: true, sameSite: "strict" }).redirect("/dashboard");
 });
 
 router.get("/dashboard", verifyUser, async (req, res) => {
@@ -108,8 +112,10 @@ router.get("/dataBackup", verifyUser, async (req, res) => {
   return res.sendFile(publicDirectoryPath + "/backup/data.zip");
 });
 
-router.get("/logout", verifyUser, (req, res) => {
-  userStatus = "Invalid";
+router.get("/logout", verifyUser, async (req, res) => {
+  const token = req.cookies.accessToken;
+  const date = Date.now();
+  await saveExpiredToken(token, date);
   return res.redirect("/");
 });
 

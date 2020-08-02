@@ -45,7 +45,7 @@ If you are looking for some traditional note-taking application then I suggest t
 ## Installation:
 
 1. Clone this Project.
-2. Edit `.env` file and update the value of `KEY` and `IV`.
+2. Edit `.env` file and update the value of `KEY`, `IV`, and `TOKEN_SECRET`.
 3. Open terminal/command-prompt. **cd** to project directory and type:
 
    i. `npm install`
@@ -69,19 +69,19 @@ If you are looking for some traditional note-taking application then I suggest t
 
 **Home Page:**
 
-<img src="https://github.com/Sajjal/Private-Database/blob/master/public/images/Screen_shots/home.png">
+<img src="https://github.com/Sajjal/Private-Database/blob/master/public/images/Screen_shots/dashboard.png">
 
 ---
 
 **Add New Record:**
 
-<img src="https://github.com/Sajjal/Private-Database/blob/master/public/images/Screen_shots/add.png">
+<img src="https://github.com/Sajjal/Private-Database/blob/master/public/images/Screen_shots/addRecord.png">
 
 ---
 
 **Edit Record:**
 
-<img src="https://github.com/Sajjal/Private-Database/blob/master/public/images/Screen_shots/edit.png">
+<img src="https://github.com/Sajjal/Private-Database/blob/master/public/images/Screen_shots/editRecord.png">
 
 ---
 

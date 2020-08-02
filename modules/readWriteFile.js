@@ -148,7 +148,7 @@ async function removeData(fileName, recordID) {
     return;
   }
 
-  // If there is more than only one record in a data-file, only delete the record
+  // If there is more than one record in a data-file, only delete the record
   newData = fileData.filter((data) => {
     return data.id != recordID;
   });
