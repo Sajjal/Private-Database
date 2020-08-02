@@ -12,4 +12,4 @@ Create a 'user.json' file in this directory with the following structure:
 ]
 
 Go to 'routes/mainRouter.js'
-Uncomment line 28 and 32, and comment line 33.
+Uncomment line 26 and 30, and comment line 31.

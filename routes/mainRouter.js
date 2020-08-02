@@ -1,8 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const path = require("path");
-const publicDirectoryPath = path.join(__dirname, "../public");
 const multer = require("multer");
 
 const { verifyUser, saveExpiredToken, removeExpiredToken } = require("../modules/verifyToken");
@@ -109,7 +107,7 @@ router.post("/backup", verifyUser, upload.single("dataFile"), async (req, res) =
 
 router.get("/dataBackup", verifyUser, async (req, res) => {
   await createBackup();
-  return res.sendFile(publicDirectoryPath + "/backup/data.zip");
+  return res.download("./public/backup/data.zip", "dataBackup.zip");
 });
 
 router.get("/logout", verifyUser, async (req, res) => {
