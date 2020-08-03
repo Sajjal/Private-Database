@@ -3,7 +3,7 @@ const fs = require("fs");
 
 async function backup() {
   try {
-    child_process.execSync(`zip -r ./public/backup/data.zip ./data`, {
+    child_process.execSync(`zip -r ./backup/data.zip ./data`, {
       cwd: `./`,
     });
     return;
@@ -14,7 +14,7 @@ async function backup() {
 
 async function restoreBackup() {
   try {
-    child_process.execSync(`unzip -o -d ./ ./public/backup/data.zip`, {
+    child_process.execSync(`unzip -o -d ./ ./backup/data.zip`, {
       cwd: `./`,
     });
     return;
@@ -25,7 +25,7 @@ async function restoreBackup() {
 
 async function deleteBackup() {
   try {
-    fs.unlink(`./public/backup/data.zip`, (err) => {
+    fs.unlink(`./backup/data.zip`, (err) => {
       if (err) {
         return;
       }

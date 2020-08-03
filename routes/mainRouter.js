@@ -10,7 +10,7 @@ const { createBackup, restoreBackup } = require("../modules/backup");
 // Upload Backup file and Rename it as data.zip
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./public/backup");
+    cb(null, "backup");
   },
   filename: function (req, file, cb) {
     cb(null, "data.zip");
@@ -107,7 +107,7 @@ router.post("/backup", verifyUser, upload.single("dataFile"), async (req, res) =
 
 router.get("/dataBackup", verifyUser, async (req, res) => {
   await createBackup();
-  return res.download("./public/backup/data.zip", "dataBackup.zip");
+  return res.download("./backup/data.zip", "dataBackup.zip");
 });
 
 router.get("/logout", verifyUser, async (req, res) => {

@@ -25,7 +25,7 @@ async function verifyUser(req, res, next) {
 
 async function readExpiredToken() {
   try {
-    const token = await fs.readFile(`./data/expiredToken.json`, "binary");
+    const token = await fs.readFile(`./expiredTokens/expiredToken.json`, "binary");
     return JSON.parse(token);
   } catch {
     return;
@@ -38,7 +38,7 @@ async function saveExpiredToken(token, id) {
   const data = { token, id };
   oldData.push(data);
   try {
-    await fs.writeFile(`./data/expiredToken.json`, JSON.stringify(oldData, null, 2), "utf-8");
+    await fs.writeFile(`./expiredTokens/expiredToken.json`, JSON.stringify(oldData, null, 2), "utf-8");
     return;
   } catch {
     return;
@@ -54,7 +54,7 @@ async function removeExpiredToken() {
   activeTokens = tokens.filter((token) => {
     return token.id >= date;
   });
-  return await fs.writeFile(`./data/expiredToken.json`, JSON.stringify(activeTokens, null, 2), "utf-8");
+  return await fs.writeFile(`./expiredTokens/expiredToken.json`, JSON.stringify(activeTokens, null, 2), "utf-8");
 }
 
 async function searchToken(token) {
